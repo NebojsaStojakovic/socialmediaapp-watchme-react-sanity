@@ -23,7 +23,6 @@ const Feed = () => {
       });
     } else {
       client.fetch(feedQuery).then((data) => {
-        console.log("data", data);
         setPins(data);
         setLoading(false);
       });

@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { useRef } from "react";
 import { Route, Routes } from "react-router-dom";
 import Pin from "./Pin";
-import { IoCloseCircle, IoSettingsOutline } from "react-icons/io5";
-import { BiMenuAltRight } from "react-icons/bi";
 import { client } from "../client";
 import { useEffect } from "react";
 import { userQuery } from "../utils/data";
@@ -23,7 +21,6 @@ const Home = () => {
     // create the sanity query to access the sanity
     const query = userQuery(userInfo?.googleId);
     client.fetch(query).then((data) => {
-      console.log("data", data);
       setUser(data[0]);
     });
   }, []);
