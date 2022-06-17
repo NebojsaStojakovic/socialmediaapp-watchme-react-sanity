@@ -3,6 +3,7 @@ import Login from "./components/Login";
 import Home from "./container/Home";
 import { gapi } from "gapi-script";
 import { useEffect } from "react";
+import { fetchUser } from "./utils/fetchUser";
 
 const App = () => {
   const navigate = useNavigate();
@@ -17,6 +18,13 @@ const App = () => {
 
     gapi.load("client:auth2", start);
   });
+
+  useEffect(() => {
+    const User = fetchUser();
+
+    if (!User) navigate("/login");
+  }, []);
+
   return (
     <Routes>
       <Route path='login' element={<Login />} />
